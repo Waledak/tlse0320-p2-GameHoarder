@@ -187,7 +187,7 @@ class NewGameCard extends React.Component {
           <div className="GameInfoTitle">
             <div>
               <div className="NameWish">
-                <h3 className="GameName" onClick={this.showInfoGame}>
+                <h3 className="GameName" onClick={addToWish ? this.hideModal : this.showInfoGame}>
                   {name}
                 </h3>
                 <button
