@@ -43,6 +43,15 @@
     transform: translate(-50%, -50%);
     border-radius: 10px;
     padding: 1rem;
+    .GameInfo {
+      .redheart::before {
+        content: 'Supprimé ?';
+      }
+      .redheart:hover::before {
+        height: 100%;
+        font-size: 1rem;
+      }
+    }
   }
 
   .header {
@@ -150,6 +159,7 @@
 
 .GameSupport {
   width: 100%;
+  margin-top: 4px;
 }
 
 .GameRating {
@@ -237,10 +247,6 @@
   div {
     margin-right: 5px;
   }
-}
-
-.GameSupport {
-  margin-top: -4px;
 }
 
 .container-top-five {
