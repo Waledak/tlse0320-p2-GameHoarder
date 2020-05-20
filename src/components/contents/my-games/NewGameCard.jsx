@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './MyGameCard';
-import Swal from 'sweetalert2';
 import DisplayRating from './DisplayRating';
 import InfoCard from './InfoCard';
 
@@ -201,6 +200,7 @@ class NewGameCard extends React.Component {
                   }}
                 >
                   <img
+                    className="redheart"
                     src={isWish || addToWish ? '/img/svg/redheart.svg' : '/img/svg/wishlist.svg'}
                     alt="icon wishlist"
                   />
