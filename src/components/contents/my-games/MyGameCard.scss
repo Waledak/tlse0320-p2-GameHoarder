@@ -30,6 +30,10 @@
   }
 
   .modal-main {
+    .GameName,
+    .ImageCard {
+      cursor: default;
+    }
     position: fixed;
     background: white;
     width: 30%;
@@ -202,6 +206,9 @@
 }
 
 .display-block {
+  .ImageCard:hover::before {
+    content: none;
+  }
   display: block;
 }
 
