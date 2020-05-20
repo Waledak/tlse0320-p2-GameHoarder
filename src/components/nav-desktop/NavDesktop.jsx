@@ -39,13 +39,14 @@ class NavDesktop extends React.Component {
           <img src="./img/svg/logo-black.svg" alt="logo " />
         </div>
         <ul>
-          <NavLink to="/ajouter-un-jeu">
+          <NavLink to="/ajouter-un-jeu" style={{ outlineStyle: 'none' }}>
             <li>Ajouter un jeu</li>
           </NavLink>
-          <NavLink to="/">
+          <NavLink to="/" style={{ outlineStyle: 'none' }}>
             <li>Ma bibliothèque</li>
           </NavLink>
           <DisplayWishlist
+            style={{ outlineStyle: 'none' }}
             show={show}
             handleClose={this.hideModal}
             listGamesLib={listGamesLib}
