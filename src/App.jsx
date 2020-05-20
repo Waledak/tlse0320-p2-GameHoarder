@@ -185,6 +185,7 @@ class App extends React.Component {
             listGamesLib={listGamesLib}
           />
           <NewGames
+            handleAllGames={handleAllGames}
             value={newgameInputValue}
             listGamesLib={listGamesLib}
             handleGamesList={this.handleGamesList}
