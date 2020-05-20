@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import DisplayRating from './DisplayRating';
+import './MyGameCard.scss';
 
 function TopThreeGame(props) {
   const {
