@@ -162,6 +162,12 @@ class App extends React.Component {
   }
 
   handleremoveDataGame(values) {
+    Swal.fire({
+      title: 'Jeu retiré de la bibliothèque',
+      icon: 'success',
+      showConfirmButton: false,
+      timer: 1200
+    });
     const { listGamesLib } = this.state;
     let newlistGamesLib = listGamesLib;
     newlistGamesLib = newlistGamesLib.filter(game => game.title !== values.title);
