@@ -11,6 +11,9 @@ function Filters({ value, handleChange, location }) {
       <div className="input-filter">
         <input value={value} onChange={handleChange} name={location} placeholder="ma recherche" />
       </div>
+      <button>
+        <img src="./img/svg/icons8-search.svg" alt="loupe icon" />
+      </button>
     </div>
   );
 }

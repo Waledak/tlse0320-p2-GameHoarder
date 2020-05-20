@@ -3,18 +3,32 @@
   align-items: center;
   margin-bottom: 30px;
   margin-top: 30px;
-
   .input-filter {
     input {
       border: solid 2px black;
+      border-right: 0;
       background-color: transparent;
       min-width: 350px;
       padding: 25px;
+      outline: none;
       &::placeholder {
         padding-left: 30px;
         color: black;
         font-size: 1.1rem;
       }
+    }
+  }
+  button {
+    height: 100%;
+    cursor: pointer;
+    border: solid 2px black;
+    border-left: 0;
+    width: fit-content;
+    background-color: #efefef;
+    padding: 15px;
+    img {
+      max-height: 2rem;
+      width: auto;
     }
   }
 }
