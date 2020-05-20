@@ -7,7 +7,7 @@ class HeaderSugg extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      url: this.props.games[0].url,
+      url: this.props.games[0].url[0],
       name: this.props.games[0].name,
       rating: this.props.games[0].rating,
       id: this.props.games[0].id
