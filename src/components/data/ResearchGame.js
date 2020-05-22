@@ -101,17 +101,32 @@ export default function ResearchGame(value, handleAllGames, e) {
         headers: {
           Accept: 'application/json'
         },
-        data: `fields url, id;\nwhere ${allGamesTab
-          .map(game =>
-            game.artworks
-              ? game.artworks
-                  .slice(0, 3)
-                  .map(artwork => `id=${artwork} | `)
-                  .join('')
-              : ''
-          )
-          .join('')
-          .slice(0, -2)};limit 50;`
+        data: `fields url, id;\n ${
+          allGamesTab
+            .map(game =>
+              game.artworks
+                ? game.artworks
+                    .slice(0, 3)
+                    .map(artwork => `id=${artwork} | `)
+                    .join('')
+                : ''
+            )
+            .join('')
+            .slice(0, -2) !== ''
+            ? String('where ') +
+              allGamesTab
+                .map(game =>
+                  game.artworks
+                    ? game.artworks
+                        .slice(0, 3)
+                        .map(artwork => `id=${artwork} | `)
+                        .join('')
+                    : ''
+                )
+                .join('')
+                .slice(0, -2)
+            : ''
+        } ;limit 50;`
       })
         .then(gameArtworks => gameArtworks.data)
         .then(gameArtworks => {
@@ -121,7 +136,7 @@ export default function ResearchGame(value, handleAllGames, e) {
               if (!game.artworks) {
                 game.artworks = [];
               } else {
-                game.artworks = game.artworks.slice(0, 3);
+                game.artworks = game.artworks.slice(0, 4);
               }
               for (let x = 0; x < game.artworks.length; x++) {
                 if (game.artworks[x] === gameArtworks[i].id) {
