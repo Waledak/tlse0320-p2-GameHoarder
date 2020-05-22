@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 export default function ResearchGame(value, handleAllGames, e) {
-  console.log(value, handleAllGames, e);
   e.preventDefault();
   axios({
     url: 'https://cors-anywhere.herokuapp.com/https://api-v3.igdb.com/games',
@@ -9,8 +8,7 @@ export default function ResearchGame(value, handleAllGames, e) {
     headers: {
       Accept: 'application/json'
     },
-    data:
-      'search "cod";\nfields id, platforms, artworks, summary, genres, category, cover, name, popularity, rating;\nwhere summary!=null & rating != null;\nlimit 25;'
+    data: `search "${value}";\nfields id, platforms, artworks, summary, genres, category, cover, name, popularity, rating;\nwhere genres!=null & platforms!=null & summary!=null & rating != null;\nlimit 25;`
   })
     .then(res => res.data)
     .then(allGamesTab => {

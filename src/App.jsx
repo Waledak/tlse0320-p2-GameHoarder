@@ -177,7 +177,7 @@ class App extends React.Component {
       allGames.length === 0 ||
       allGames[0].url === undefined ||
       allGames[0].platformsName === undefined ||
-      allGames[0].genres === undefined ||
+      allGames[0].genresName === undefined ||
       allGames[0].artworksUrl === undefined
     ) {
       addGameContent = <CommonLoading color="#1047f5" />;

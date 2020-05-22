@@ -15,7 +15,7 @@ export default class GetGames extends React.Component {
           Accept: 'application/json'
         },
         data:
-          'fields id, platforms, artworks, summary, genres, category, cover, name, popularity, rating;\nwhere genres!=[34] & genres!=[32] & summary!=null & popularity >= 20 & cover!=null & rating != null & rating >= 60;\nlimit 25;'
+          'fields id, platforms, artworks, summary, genres, category, cover, name, popularity, rating;\nwhere genres!=null & platforms!=null & genres!=[34] & genres!=[32] & summary!=null & popularity >= 20 & cover!=null & rating != null & rating >= 60;\nlimit 25;'
       })
         .then(res => res.data)
         .then(allGamesTab => {
