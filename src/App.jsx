@@ -74,6 +74,12 @@ class App extends React.Component {
   }
 
   handleGamesList(values) {
+    Swal.fire({
+      title: 'Jeu ajouté',
+      icon: 'success',
+      showConfirmButton: false,
+      timer: 1200
+    });
     const { listGamesLib } = this.state;
     let newlistGamesLib = listGamesLib;
     newlistGamesLib = newlistGamesLib.filter(game => game.title !== values.title);

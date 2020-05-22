@@ -44,6 +44,9 @@
     }
 
     .infoHeaderContainer {
+      h2 {
+        font-size: 20px;
+      }
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -53,9 +56,16 @@
       margin-right: 15px;
       padding: 15px;
       color: white;
+      border-radius: 5px;
 
       &.blue {
         background-color: #0f47f5;
+      }
+
+      .statuts {
+        width: auto;
+        text-align: center;
+        font-size: 17px;
       }
 
       .ratingSuggestion {

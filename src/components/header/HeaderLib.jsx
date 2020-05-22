@@ -32,6 +32,31 @@ export default class HeaderLib extends React.Component {
     }
   }
 
+  getSelectValue(event) {
+    const valueToChange = event.target.value;
+
+    const { lastGameName } = this.state;
+    const { listGamesLib } = this.props;
+    const newTab = listGamesLib.filter(game => game.title === lastGameName);
+    this.setState({
+      update: true
+    });
+    const values = {
+      addingDate: newTab[0].addingDate,
+      title: newTab[0].title,
+      img: newTab[0].img,
+      rating: newTab[0].rating,
+      id: newTab[0].id,
+      addToLib: true,
+      addToWish: false,
+      platformsName: newTab[0].platformsName,
+      status: valueToChange
+    };
+
+    const { handleChangeStatue } = this.props;
+    handleChangeStatue(values);
+  }
+
   handleLastGameAdded() {
     const { listGamesLib } = this.props;
     if (listGamesLib && listGamesLib.length > 0) {
@@ -56,31 +81,6 @@ export default class HeaderLib extends React.Component {
     const { lastGameName } = this.state;
     gameToRemove(lastGameName);
     this.handleLastGameAdded();
-  }
-
-  getSelectValue(event) {
-    const valueToChange = event.target.value;
-
-    const { lastGameName } = this.state;
-    const { listGamesLib } = this.props;
-    const newTab = listGamesLib.filter(game => game.title === lastGameName);
-    this.setState({
-      update: true
-    });
-    const values = {
-      addingDate: newTab[0].addingDate,
-      title: newTab[0].title,
-      img: newTab[0].img,
-      rating: newTab[0].rating,
-      id: newTab[0].id,
-      addToLib: true,
-      addToWish: false,
-      platformsName: newTab[0].platformsName,
-      status: valueToChange
-    };
-
-    const { handleChangeStatue } = this.props;
-    handleChangeStatue(values);
   }
 
   render() {
