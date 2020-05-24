@@ -11,24 +11,37 @@ const ListNewGameCards = ({
   handleRemoveWishlistGame,
   handleremoveDataGame
 }) => {
-  const displayNewGameCards = value =>
-    games
-      .filter(game => (value ? game.name.toUpperCase().includes(value.toUpperCase()) : game))
-      .map(game => (
-        <div key={game.id}>
-          <NewGameCard
-            {...game}
-            listGamesLib={listGamesLib}
-            key={`new-game-${game.name}`}
-            handleWishlistGame={handleWishlistGame}
-            handleGamesList={handleGamesList}
-            handleRemoveWishlistGame={handleRemoveWishlistGame}
-            handleremoveDataGame={handleremoveDataGame}
-          />
-        </div>
-      ));
+  const displayNewGameCards = value => {
+    if (
+      games.filter(game => (value ? game.name.toUpperCase().includes(value.toUpperCase()) : game))
+        .length === 0
+    ) {
+      return (
+        <div className="alert">Appuyer sur entrée ou sur la loupe pour rechercher un jeux.</div>
+      );
+    }
+    return (
+      <div className="grid-cards-display">
+        {games
+          .filter(game => (value ? game.name.toUpperCase().includes(value.toUpperCase()) : game))
+          .map(game => (
+            <div key={game.id}>
+              <NewGameCard
+                {...game}
+                listGamesLib={listGamesLib}
+                key={`new-game-${game.name}`}
+                handleWishlistGame={handleWishlistGame}
+                handleGamesList={handleGamesList}
+                handleRemoveWishlistGame={handleRemoveWishlistGame}
+                handleremoveDataGame={handleremoveDataGame}
+              />
+            </div>
+          ))}
+      </div>
+    );
+  };
 
-  return <div className="grid-cards-display">{displayNewGameCards(value)}</div>;
+  return displayNewGameCards(value);
 };
 
 ListNewGameCards.propTypes = {
