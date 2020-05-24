@@ -1,7 +1,8 @@
 import axios from 'axios';
 
-export default function ResearchGame(value, handleAllGames, e) {
+export default function ResearchGame(value, handleAllGames, e, handleChange) {
   e.preventDefault();
+  handleChange(null);
   axios({
     url: 'https://cors-anywhere.herokuapp.com/https://api-v3.igdb.com/games',
     method: 'POST',

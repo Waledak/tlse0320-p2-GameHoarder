@@ -156,9 +156,13 @@ class App extends React.Component {
   }
 
   handleChange(event) {
-    const valueToChange = event.target.value;
-    const inputSearchInputValue = event.target.name;
-    this.setState({ [inputSearchInputValue]: valueToChange });
+    if (event !== null) {
+      const valueToChange = event.target.value;
+      const inputSearchInputValue = event.target.name;
+      this.setState({ [inputSearchInputValue]: valueToChange });
+    } else {
+      this.setState({ newgameInputValue: event });
+    }
   }
 
   handleremoveDataGame(values) {
@@ -192,6 +196,7 @@ class App extends React.Component {
           />
           <NewGames
             handleAllGames={handleAllGames}
+            newgameInputValue={newgameInputValue}
             value={newgameInputValue}
             listGamesLib={listGamesLib}
             handleGamesList={this.handleGamesList}

@@ -18,7 +18,10 @@ function Filters({ value, handleChange, handleAllGames, location }) {
   }
   return (
     <div className="filter-container">
-      <form onSubmit={e => ResearchGame(value, handleAllGames, e)} style={{ display: 'flex' }}>
+      <form
+        onSubmit={e => ResearchGame(value, handleAllGames, e, handleChange)}
+        style={{ display: 'flex' }}
+      >
         <div className="input-filter">
           <input
             value={value}
