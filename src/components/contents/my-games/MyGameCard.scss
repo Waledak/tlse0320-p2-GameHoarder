@@ -145,21 +145,20 @@
     margin-right: 5px;
   }
 }
-
+.alert {
+  background-color: var(--alert-color);
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1rem;
+  color: white;
+}
 .modal-div {
   display: flex;
   flex-direction: column;
   color: whitesmoke;
   justify-content: center;
   margin: 2%;
-  .alert {
-    background-color: var(--alert-color);
-    padding: 20px;
-    border-radius: 5px;
-    text-align: center;
-    font-size: 1rem;
-    color: white;
-  }
 
   .Card {
     padding: 10px;

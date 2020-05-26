@@ -3,18 +3,49 @@
   align-items: center;
   margin-bottom: 30px;
   margin-top: 30px;
-
   .input-filter {
     input {
       border: solid 2px black;
       background-color: transparent;
       min-width: 350px;
       padding: 25px;
+      outline: none;
       &::placeholder {
         padding-left: 30px;
         color: black;
         font-size: 1.1rem;
       }
     }
+  }
+  button {
+    height: 100%;
+    cursor: pointer;
+    border: solid 2px black;
+    border-left: 0;
+    width: fit-content;
+    background-color: #d6d6d6;
+    padding: 15px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    img {
+      max-height: 2rem;
+      width: auto;
+    }
+  }
+  button::before {
+    content: '';
+    background-color: var(--primary-color);
+    position: absolute;
+    height: 200%;
+    width: 0;
+    left: -50%;
+    top: -50%;
+    transform: rotate(40deg);
+    z-index: -1;
+    transition: width 0.4s ease;
+  }
+  button:hover::before {
+    width: 140%;
   }
 }

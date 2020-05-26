@@ -124,7 +124,6 @@
 
         .container {
           position: relative;
-          z-index: 2;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
@@ -203,4 +202,34 @@
   text-transform: uppercase;
   box-shadow: 3px 3px 9px #aaa;
   cursor: pointer;
+}
+@media screen and (max-width: 1024px) {
+  .new-games {
+    /////////////////////////
+    // Layout cards
+    /////////////////////////
+    .grid-cards-display {
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 15px;
+      width: fit-content;
+      margin: auto;
+    }
+    .container-box {
+      padding: 100px 25px;
+    }
+    .container-top-five {
+      width: 100%;
+      margin-right: 0;
+      .container-list-top-five {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: start;
+        width: fit-content;
+        padding-bottom: 6rem;
+        .card {
+          margin: 15px auto;
+        }
+      }
+    }
+  }
 }

@@ -74,6 +74,12 @@ class App extends React.Component {
   }
 
   handleGamesList(values) {
+    Swal.fire({
+      title: 'Jeu ajouté',
+      icon: 'success',
+      showConfirmButton: false,
+      timer: 1200
+    });
     const { listGamesLib } = this.state;
     let newlistGamesLib = listGamesLib;
     newlistGamesLib = newlistGamesLib.filter(game => game.title !== values.title);
@@ -150,9 +156,13 @@ class App extends React.Component {
   }
 
   handleChange(event) {
-    const valueToChange = event.target.value;
-    const inputSearchInputValue = event.target.name;
-    this.setState({ [inputSearchInputValue]: valueToChange });
+    if (event !== null) {
+      const valueToChange = event.target.value;
+      const inputSearchInputValue = event.target.name;
+      this.setState({ [inputSearchInputValue]: valueToChange });
+    } else {
+      this.setState({ newgameInputValue: event });
+    }
   }
 
   handleremoveDataGame(values) {
@@ -171,7 +181,7 @@ class App extends React.Component {
       allGames.length === 0 ||
       allGames[0].url === undefined ||
       allGames[0].platformsName === undefined ||
-      allGames[0].genres === undefined ||
+      allGames[0].genresName === undefined ||
       allGames[0].artworksUrl === undefined
     ) {
       addGameContent = <CommonLoading color="#1047f5" />;
@@ -185,6 +195,8 @@ class App extends React.Component {
             listGamesLib={listGamesLib}
           />
           <NewGames
+            handleAllGames={handleAllGames}
+            newgameInputValue={newgameInputValue}
             value={newgameInputValue}
             listGamesLib={listGamesLib}
             handleGamesList={this.handleGamesList}

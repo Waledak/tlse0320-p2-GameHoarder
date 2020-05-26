@@ -15,13 +15,19 @@ function NewGames({
   listGamesLib,
   handleRemoveWishlistGame,
   handleremoveDataGame,
-  listGamesList
+  listGamesList,
+  handleAllGames
 }) {
   return (
     <div className="new-games">
       <div className="container-box">
         <Title title="Ajouter des " span="jeux" />
-        <Filters value={value} handleChange={handleChange} location="newgameInputValue" />
+        <Filters
+          value={value}
+          handleChange={handleChange}
+          handleAllGames={handleAllGames}
+          location="newgameInputValue"
+        />
         <ListNewGameCards
           value={value}
           games={games}
